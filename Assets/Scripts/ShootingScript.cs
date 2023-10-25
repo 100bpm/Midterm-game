@@ -15,7 +15,7 @@ public class ShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fireCooldown = Time.deltaTime;
+        fireCooldown += Time.deltaTime;
 
         //
         if (fireCooldown > fireRate

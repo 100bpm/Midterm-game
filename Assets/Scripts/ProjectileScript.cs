@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    
+    public float speed;
+    
+    public float lifetime;
+    
+    private float lifetimeCounter = 0;
 
     // Update is called once per frame
     void Update()
     {
         
+        MoveProjectile();
+        //
+        lifetimeCounter += Time.deltaTime;
+        //
+        if (lifetimeCounter > lifetime)
+        {
+
+            //destory this object
+            Destroy(this.gameObject);
+        }
     }
-}
+
+        void MoveProjectile()
+        {   //
+            Vector3 newPos = transform.position;
+            //
+            newPos += transform.up * speed * Time.deltaTime;
+            //
+            transform.position = newPos;
+        }
+
+
+    }

@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 6420398291235593251}
   - component: {fileID: 7552224541527302073}
   - component: {fileID: 1299131478175271189}
-  - component: {fileID: 6798995391130676012}
   - component: {fileID: 3781835407634350655}
   - component: {fileID: 3335940534491868947}
-  - component: {fileID: 6787808910919958723}
-  m_Layer: 0
+  - component: {fileID: -3601151399817853276}
+  - component: {fileID: -767937160821395154}
+  - component: {fileID: -5440536992576163313}
+  m_Layer: 10
   m_Name: allyShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,33 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &6798995391130676012
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2521027985263492392}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 10
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!114 &3781835407634350655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a08ff77838340b4aa610696535043b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rd: {fileID: 6798995391130676012}
+  rd: {fileID: -767937160821395154}
   speed: 10
   playerTag: Player
 --- !u!114 &3335940534491868947
@@ -191,7 +165,53 @@ MonoBehaviour:
   shootbutton: Jump
   projectile: {fileID: 4535161991592326813, guid: 53fc86cba086fca43b700b4b3b8606fe, type: 3}
   fireRate: 0.5
---- !u!114 &6787808910919958723
+  playerTag: Player
+--- !u!114 &-3601151399817853276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521027985263492392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e830c57784ea34bbd4c91aabbf69c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ally: {fileID: 2521027985263492392}
+  newTag: Player
+  playerTag: Player
+  xPos: 0
+  yPos: 0
+  zPos: 0
+--- !u!50 &-767937160821395154
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521027985263492392}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!114 &-5440536992576163313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,4 +224,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  lifetime: 100
+  lifetime: 15

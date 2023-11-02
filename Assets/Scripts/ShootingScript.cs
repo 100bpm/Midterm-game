@@ -12,6 +12,8 @@ public class ShootingScript : MonoBehaviour
 
     float fireCooldown = 0;
 
+    public string playerTag = "Player";
+
     // Update is called once per frame
     void Update()
     {
@@ -19,7 +21,8 @@ public class ShootingScript : MonoBehaviour
 
         //
         if (fireCooldown > fireRate
-            && Input.GetButtonDown(shootbutton)) 
+            && Input.GetButtonDown(shootbutton)
+            && this.CompareTag(playerTag)) 
         {
             Shoot();
             //

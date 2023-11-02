@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BarrierScript : MonoBehaviour
 {
-    public int health = 3;
+    public int health = 10;
     private int hits;
 
-    public string enemyTag = "Enemy";
+    
+    public string bulletTag = "Bullet";
+    public string enemyBulletTag = "enemyBullet";
 
     public Collider2D BarrierCollider;
 
@@ -31,10 +33,17 @@ public class BarrierScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.name);
-        if (other.CompareTag(enemyTag)) 
+        if (other.CompareTag(enemyBulletTag)) 
         {
             Deducthealth(1);
             Destroy(other.gameObject);
+        
+        }
+
+        if (other.CompareTag(bulletTag))
+        {
+        
+            Destroy(other.gameObject);        
         
         }
     }

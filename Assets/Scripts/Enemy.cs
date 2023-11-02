@@ -5,22 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Collision Detection")]
+    
+    public string bulletTag = "Bullet";
+    public string enemyTag = "Enemy";
+    public string enemyBulletTag = "enemyBullet";
+
     //
-    public string playerProjectileTag = "Player";
+    // public Transform EnemyExplosion;
 
 
-    [Header("Particle Effect")]
-    //
-   // public Transform EnemyExplosion;
 
-    [Header("fake enemy destruction")]
-    //
-    public GameObject EnemyMesh;
-    public Collider2D EnemyCollider;
 
-    [Header("Enemy Shooting")]
+
     public Transform projectile;
+    
     //
     public float fireRate;
     //
@@ -38,31 +36,39 @@ public class Enemy : MonoBehaviour
     {
         fireCooldown += Time.deltaTime;
 
-        //Ray2D floordetection = new Ray2D(this.transform.position, -Vector2.up);
+        
         Debug.DrawRay(this.transform.position + raycastOriginalOffset,
            -Vector2.up * maxDistance, Color.red);
 
-        // Cast a ray straight down.
+        //
         RaycastHit2D downRay = Physics2D.Raycast(transform.position + raycastOriginalOffset, -Vector2.up, 
             maxDistance, raycastLayers);
 
 
         //
         if (fireCooldown > fireRate
-            && downRay.collider != null)
+            && downRay.collider != null
+            && GameObject.FindGameObjectsWithTag(enemyBulletTag).Length < 1)
         {
+
         Debug.Log(downRay.collider.name);
+           
+
             Shoot();
             //
             fireCooldown = 0;
 
         }
+
+
+        
+
     }
 
     //if enemy takes damage it will be destroyed
     private void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.CompareTag(playerProjectileTag))
+        if (other.CompareTag(bulletTag))
         {
             //
             ScoreManager.Instance.AddScore(10);
@@ -74,9 +80,8 @@ public class Enemy : MonoBehaviour
             //this.transform);
 
             Destroy(this.gameObject);
-            //
-            //EnemyMesh.SetActive(false);
-            //EnemyCollider.enabled = false;
+            Destroy(other.gameObject);
+           
 
         }
 

@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Collision Detection")]
     //
-    public string projectileTag;
+    public string playerProjectileTag = "Player";
 
 
     [Header("Particle Effect")]
@@ -26,40 +26,57 @@ public class Enemy : MonoBehaviour
     //
     float fireCooldown = 0;
 
+    //how far the player must be from the enemy for it to shoot 
+    public float maxDistance;
+    //
+    public Vector3 raycastOriginalOffset;
 
+    public LayerMask raycastLayers;
 
     // Update is called once per frame
     void Update()
     {
         fireCooldown += Time.deltaTime;
 
+        //Ray2D floordetection = new Ray2D(this.transform.position, -Vector2.up);
+        Debug.DrawRay(this.transform.position + raycastOriginalOffset,
+           -Vector2.up * maxDistance, Color.red);
+
+        // Cast a ray straight down.
+        RaycastHit2D downRay = Physics2D.Raycast(transform.position + raycastOriginalOffset, -Vector2.up, 
+            maxDistance, raycastLayers);
+
+
         //
-       /* if (fireCooldown > fireRate)
+        if (fireCooldown > fireRate
+            && downRay.collider != null)
         {
+        Debug.Log(downRay.collider.name);
             Shoot();
             //
             fireCooldown = 0;
 
-        }*/
+        }
     }
 
+    //if enemy takes damage it will be destroyed
     private void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.CompareTag(projectileTag))
+        if (other.CompareTag(playerProjectileTag))
         {
             //
-           // ScoreManager.Instance.AddScore(10);
+            ScoreManager.Instance.AddScore(10);
 
 
-           // Instantiate(EnemyExplosion,
-            //    this.transform.position,
-              //  this.transform.rotation,
-                //this.transform);
+            // Instantiate(EnemyExplosion,
+            //   this.transform.position,
+            // this.transform.rotation,
+            //this.transform);
 
-
-            //instead of destorying game object we disable the mesh and collider
-            EnemyMesh.SetActive(false);
-            EnemyCollider.enabled = false;
+            Destroy(this.gameObject);
+            //
+            //EnemyMesh.SetActive(false);
+            //EnemyCollider.enabled = false;
 
         }
 
@@ -70,7 +87,7 @@ public class Enemy : MonoBehaviour
     void Shoot()
     {
         //
-       // Instantiate(projectile, transform.position, Quaternion.identity);
+       Instantiate(projectile, transform.position, Quaternion.identity);
 
     }
 

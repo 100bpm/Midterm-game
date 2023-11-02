@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4535161991592326813}
   - component: {fileID: 5237852628556801217}
-  - component: {fileID: 7005569787465861246}
   - component: {fileID: 853923113372683354}
   - component: {fileID: 4127666818338016053}
-  - component: {fileID: -5615510445761039164}
+  - component: {fileID: -1498762154249147857}
+  - component: {fileID: -7259285620436489791}
   m_Layer: 0
-  m_Name: ProjectilePrefab
-  m_TagString: Player
+  m_Name: EnemyProjectilePrefab 1
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7005569787465861246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4065754525543237060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57da6844feea52e4f843b209272a3ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  lifetime: 1
 --- !u!58 &853923113372683354
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -241,7 +227,21 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!50 &-5615510445761039164
+--- !u!114 &-1498762154249147857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065754525543237060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228a672078c77ee469e04d5f84287d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  lifetime: 1
+--- !u!50 &-7259285620436489791
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

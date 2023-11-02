@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7887344196447835616}
   - component: {fileID: 590845054867309086}
-  - component: {fileID: 1006211388405744773}
   - component: {fileID: -6790849721749176925}
-  - component: {fileID: 1424113621003368878}
   - component: {fileID: -6426730314144065507}
   m_Layer: 0
   m_Name: Enemy
@@ -30,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4960383556930375437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0146, y: 0.6291, z: 0.02879684}
+  m_LocalPosition: {x: -0.0146, y: 0.6291, z: 0}
   m_LocalScale: {x: 0.6092, y: 0.6249, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88,27 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1006211388405744773
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4960383556930375437}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 99946d624750ce0408347b96bcd4bd06, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-6790849721749176925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,26 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f871ae6d9fc20f44d99a6100e179afd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileTag: Projectile
-  EnemyExplosion: {fileID: 0}
+  playerProjectileTag: Player
   EnemyMesh: {fileID: 4960383556930375437}
   EnemyCollider: {fileID: -6426730314144065507}
-  projectile: {fileID: 4535161991592326813, guid: 53fc86cba086fca43b700b4b3b8606fe, type: 3}
-  fireRate: 10
---- !u!114 &1424113621003368878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4960383556930375437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b30de4d8e68078479090af41831f6cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  enemyParameter: 
+  projectile: {fileID: 4535161991592326813, guid: dd0f9c727f3ed414d8528e685dd15182, type: 3}
+  fireRate: 1
+  maxDistance: 100
+  raycastOriginalOffset: {x: 0, y: 0, z: 0}
+  raycastLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &-6426730314144065507
 BoxCollider2D:
   m_ObjectHideFlags: 0

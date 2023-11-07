@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     //
     // public Transform EnemyExplosion;
 
-
+    public float speed;
 
 
 
@@ -34,6 +34,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveEnemy();
+
         fireCooldown += Time.deltaTime;
 
         
@@ -87,7 +89,16 @@ public class Enemy : MonoBehaviour
 
 
     }
+    void moveEnemy()
+    {
 
+        Vector3 newPos = transform.position;
+        //
+        newPos += -transform.up * speed * Time.deltaTime;
+        //
+        transform.position = newPos;
+
+    }
 
     void Shoot()
     {

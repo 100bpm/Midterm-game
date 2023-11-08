@@ -51,7 +51,23 @@ public class Player : MonoBehaviour
             
 
         }
-        
+
+
+        if (other.CompareTag(enemyTag))
+        {
+
+            //we display the name of the object we collided with 
+            Debug.Log("Colided with object " + other.gameObject.name);
+
+           
+            //the game over screen is shown
+            gameOverObject.SetActive(true);
+            //timescale is set to 0
+            Time.timeScale = 0f;
+
+
+        }
+
 
 
     }

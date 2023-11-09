@@ -14,6 +14,17 @@ public class ShootingScript : MonoBehaviour
 
     public string playerTag = "Player";
 
+    public AudioSource SoundPlayer;
+
+    public AudioClip shootSound;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        SoundPlayer.clip = shootSound;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -27,14 +38,18 @@ public class ShootingScript : MonoBehaviour
             Shoot();
             //
             fireCooldown = 0;
-        
+
+            SoundPlayer.Play();
+
         }
     }
 
     void Shoot() 
     {
     //
-    Instantiate(projectile, transform.position, Quaternion.identity);
+    Instantiate(projectile, transform.position, Quaternion.identity); 
+        
     
+
     }
 }

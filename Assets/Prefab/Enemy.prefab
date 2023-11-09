@@ -109,6 +109,8 @@ MonoBehaviour:
   raycastLayers:
     serializedVersion: 2
     m_Bits: 64
+  SoundPlayer: {fileID: 8913867534145348592, guid: dd0f9c727f3ed414d8528e685dd15182, type: 3}
+  shootSound: {fileID: 8300000, guid: 249a861ab23d921489f7f73c70e108d3, type: 3}
 --- !u!61 &-6426730314144065507
 BoxCollider2D:
   m_ObjectHideFlags: 0

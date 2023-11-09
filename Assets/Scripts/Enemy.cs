@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public string enemyBulletTag = "enemyBullet";
 
     //
-    // public Transform EnemyExplosion;
+  
 
     public float speed;
 
@@ -30,6 +30,18 @@ public class Enemy : MonoBehaviour
     public Vector3 raycastOriginalOffset;
 
     public LayerMask raycastLayers;
+
+    public AudioSource SoundPlayer;
+
+    public AudioClip shootSound;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+        SoundPlayer.clip = shootSound;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -54,7 +66,9 @@ public class Enemy : MonoBehaviour
         {
 
         Debug.Log(downRay.collider.name);
-           
+
+
+            SoundPlayer.Play();
 
             Shoot();
             //
@@ -75,11 +89,6 @@ public class Enemy : MonoBehaviour
             //
             ScoreManager.Instance.AddScore(10);
 
-
-            // Instantiate(EnemyExplosion,
-            //   this.transform.position,
-            // this.transform.rotation,
-            //this.transform);
 
             Destroy(this.gameObject);
             Destroy(other.gameObject);
@@ -104,6 +113,8 @@ public class Enemy : MonoBehaviour
     {
         //
        Instantiate(projectile, transform.position, Quaternion.identity);
+
+       
 
     }
 

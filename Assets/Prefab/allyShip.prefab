@@ -166,6 +166,8 @@ MonoBehaviour:
   projectile: {fileID: 4535161991592326813, guid: 53fc86cba086fca43b700b4b3b8606fe, type: 3}
   fireRate: 0.5
   playerTag: Player
+  SoundPlayer: {fileID: 3547315315480121512, guid: 53fc86cba086fca43b700b4b3b8606fe, type: 3}
+  shootSound: {fileID: 8300000, guid: 249a861ab23d921489f7f73c70e108d3, type: 3}
 --- !u!114 &-3601151399817853276
 MonoBehaviour:
   m_ObjectHideFlags: 0
